@@ -1,0 +1,15 @@
+﻿{
+    "id": "596C36956CFB25A8",
+    "name": "Reforger Coop Tutorial for YouTube",
+    "revision": {
+        "version": "1.0.2",
+        "dependencies": [],
+        "scenarios": [
+            {
+                "name": "Coop Tutorial for YouTube",
+                "gameId": "{596C36956CFB25A8}Missions/COOPTutorial.conf"
+            }
+        ],
+        "downloaded": true
+    }
+}

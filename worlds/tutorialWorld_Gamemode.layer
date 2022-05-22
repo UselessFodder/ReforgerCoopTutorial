@@ -1,0 +1,13 @@
+SCR_BaseGameMode GameMode_Plain1 : "{1B76F75A3175E85C}Prefabs/MP/Modes/Plain/GameMode_Plain.et" {
+ components {
+  SCR_AutomaticRespawnHandlerComponent "{56B4EA4DA0EEFF85}" {
+   Enabled 0
+  }
+  SCR_RespawnMenuHandlerComponent "{596C3690774CA3D4}" {
+  }
+  SCR_RespawnTimerComponent "{596C3690236869B3}" {
+   m_fRespawnTime 5
+  }
+ }
+ coords 4779.801 115.458 8178.446
+}

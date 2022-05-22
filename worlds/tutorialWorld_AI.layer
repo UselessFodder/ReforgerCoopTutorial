@@ -1,0 +1,167 @@
+SCR_FactionControlTriggerEntity endGameTrigger {
+ coords 4867.159 110.115 8093.03
+ TriggerShapeType Sphere
+ SphereRadius 100
+ TriggerActivationType "First change"
+ PeriodicQueries 1
+ UpdatePeriod 0.5
+ OnActivate ""\
+ "		SCR_BaseGameMode gameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());"\
+ "		Faction faction = GetGame().GetFactionManager().GetFactionByKey(\"US\");"\
+ "		int usIndex = GetGame().GetFactionManager().GetFactionIndex(faction);"\
+ "		gameMode.EndGameMode(SCR_GameModeEndData.CreateSimple(SCR_GameModeEndData.ENDREASON_EDITOR_FACTION_VICTORY, -1, usIndex));"\
+ "	"
+ m_sOwnerFactionKey "US"
+ m_fFriendlyRatioLimit 1
+}
+SCR_AIGroup : "{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et" {
+ coords 4859.622 114.811 8053.09
+}
+AIWaypointCycle patrolCycle : "{35BD6541CBB8AC08}Prefabs/AI/Waypoints/AIWaypoint_Cycle.et" {
+ coords 4922.368 105.787 8145.456
+ CycleWaypoints {
+  "patrolWP1" "patrolWP2" "patrolWP3" "patrolWP4" "patrolWP5" "patrolWP6"
+ }
+}
+$grp SCR_AIWaypoint : "{750A8D1695BD6998}Prefabs/AI/Waypoints/AIWaypoint_Move.et" {
+ patrolWP1 {
+  coords 4820.952 118.588 8147.049
+  AIBehaviorTreeMoveTo "{62D36413D46F02A6}AI/BehaviorTrees/Waypoints/WP_Patrol.bt"
+  CompletionRadius 5
+ }
+ patrolWP2 {
+  coords 4820.528 121.573 7999.806
+  AIBehaviorTreeMoveTo "{62D36413D46F02A6}AI/BehaviorTrees/Waypoints/WP_Patrol.bt"
+ }
+ patrolWP3 {
+  coords 4869.426 114.278 8036.568
+  AIBehaviorTreeMoveTo "{62D36413D46F02A6}AI/BehaviorTrees/Waypoints/WP_Patrol.bt"
+ }
+ patrolWP4 {
+  coords 4871.123 113.261 8062.596
+  AIBehaviorTreeMoveTo "{62D36413D46F02A6}AI/BehaviorTrees/Waypoints/WP_Patrol.bt"
+ }
+ patrolWP5 {
+  coords 4870.361 109.4 8103.706
+  AIBehaviorTreeMoveTo "{62D36413D46F02A6}AI/BehaviorTrees/Waypoints/WP_Patrol.bt"
+ }
+ patrolWP6 {
+  coords 4929.754 103.366 8153.344
+  AIBehaviorTreeMoveTo "{62D36413D46F02A6}AI/BehaviorTrees/Waypoints/WP_Patrol.bt"
+ }
+}
+$grp SCR_DefendWaypoint : "{93291E72AC23930F}Prefabs/AI/Waypoints/AIWaypoint_Defend.et" {
+ bunkerDefend1 {
+  coords 4861.803 112.091 8074.03
+  CompletionRadius 7
+ }
+ sniperDefend1 {
+  coords 4837.63 114.371 8118.088
+  CompletionRadius 1
+ }
+ buildingDefense1 {
+  coords 4843.124 114.174 8117.593
+  CompletionRadius 8
+ }
+ bunkerDefend2 {
+  coords 4887.089 113.34 8148.331
+  CompletionRadius 2
+ }
+ buildingDefense2 {
+  coords 4843.411 116.374 8048.551
+  CompletionRadius 8
+ }
+ buildingDefense3 {
+  coords 4853.584 115.924 8038.052
+  CompletionRadius 8
+ }
+ areaDefense {
+  coords 4864.25 117.68 8079.619
+  CompletionRadius 75
+ }
+}
+SCR_AIGroup roadGuard : "{96BAB56E6558788E}Prefabs/Groups/OPFOR/Group_USSR_Team_AT.et" {
+ coords 4887.195 112.54 8148.916
+ m_aUnitPrefabSlots {
+  "{1C78331E156A3D65}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_AT.et"
+ }
+ m_aStaticWaypoints {
+  "bunkerDefend2"
+ }
+}
+$grp SCR_AIGroup : "{A2F75E45C66B1C0A}Prefabs/Groups/OPFOR/Group_USSR_MachineGunTeam.et" {
+ {
+  coords 4860.883 111.919 8073.466
+  angleY -59.367
+  m_aUnitPrefabSlots {
+   "{96C784C502AC37DA}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_MG.et" "{96C784C502AC37DA}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_MG.et" "{E9AEEF2D9E41321B}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_AMG.et"
+  }
+  m_aStaticWaypoints {
+   "bunkerDefend1"
+  }
+ }
+ houseGuys2 {
+  coords 4853.884 115.924 8038.14
+  angleY -141.639
+  m_aUnitPrefabSlots {
+   "{96C784C502AC37DA}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_MG.et"
+  }
+  m_aStaticWaypoints {
+   "buildingDefense3"
+  }
+ }
+}
+$grp SCR_AIGroup : "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et" {
+ {
+  components {
+   AIGroupMovementComponent "{55C4E4E28D6EA047}" {
+    ObstacleAvoidance 1
+   }
+  }
+  coords 4881.555 112.619 8155.793
+  angleY -88.128
+  m_aStaticWaypoints {
+   "patrolCycle"
+  }
+ }
+ houseSniper {
+  coords 4837.639 114.174 8118.034
+  angleY -65.753
+  m_aUnitPrefabSlots {
+   "{976AC400219898FA}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_Sharpshooter.et"
+  }
+  m_aStaticWaypoints {
+   "sniperDefend1"
+  }
+ }
+ {
+  coords 4842.216 114.174 8118.762
+  angleY -0.176
+  m_aStaticWaypoints {
+   "buildingDefense1"
+  }
+ }
+ houseGuys1 {
+  coords 4843.486 116.374 8048.761
+  angleY -10.025
+  m_aUnitPrefabSlots {
+   "{DCB41B3746FDD1BE}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_Rifleman.et" "{8E0FE664CE7D1CA9}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_GL.et"
+  }
+  m_aStaticWaypoints {
+   "buildingDefense2"
+  }
+ }
+ {
+  coords 4904.885 108.067 8102.34
+  m_aStaticWaypoints {
+   "areaDefense"
+  }
+ }
+}
+SCR_AIGroup : "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et" {
+ coords 4852.675 111.429 8108.666
+ angleY -51.826
+ m_aStaticWaypoints {
+  "areaDefense"
+ }
+}

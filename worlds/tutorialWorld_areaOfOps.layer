@@ -1,0 +1,19 @@
+GenericEntity : "{9A6B7E1F874E5C0F}Prefabs/Compositions/Misc/SubCompositions/Sandbag_Bunker_Cluttered_USSR_01.et" {
+ coords 4887.11 112.435 8148.098
+ angleY 18.727
+}
+$grp GenericEntity : "{B51CE80A9EEF7E00}Prefabs/Compositions/Misc/SubCompositions/Sandbag_Barricade_USSR_01.et" {
+ {
+  coords 4859.725 112.174 8073.117
+  angleY -39.956
+ }
+ {
+  coords 4862.565 112.032 8076.917
+  angleY 15.278
+ }
+}
+GenericEntity : "{FFD9E8A7CD2592B5}Prefabs/Compositions/Slotted/SlotFlatSmall/SandbagPosition_S_USSR_03.et" {
+ coords 4856.828 116.402 8033.49
+ angleX -6.639
+ angleY 129.068
+}
